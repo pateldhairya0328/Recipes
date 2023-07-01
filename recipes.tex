@@ -1,0 +1,139 @@
+\documentclass[a4paper, 12pt, oneside]{book}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    bookmarksopen=true,
+    pdftitle={Recipes},
+    pdfauthor={Dhairya Patel},
+    pdfsubject={Recipes},
+    pdfkeywords={Recipes},
+    pdfcreator={LaTeX},
+    pdfpagemode={UseOutlines}
+}
+\usepackage{subfiles}
+\usepackage[english]{babel}
+% Write in Gujarati using Babel, import the fonts to do this.
+\babelprovide[import]{gujarati}
+\babelfont{rm}[
+    Path = ./fonts/Noto_Serif/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]
+    {NotoSerif}
+\babelfont{sf}[
+    Path = ./fonts/Noto_Sans/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]
+    {NotoSans}
+\babelfont{tt}[
+    Path = ./fonts/Noto_Sans_Mono/static/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold]
+    {NotoSansMono}
+\babelfont[gujarati]{rm}[
+    Path = ./fonts/Noto_Serif_Gujarati/static/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold]
+    {NotoSerifGujarati}
+\babelfont[gujarati]{sf}[
+    Path = ./fonts/Noto_Sans_Gujarati/static/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold]
+    {NotoSansGujarati}
+\usepackage{titlesec}
+% Modify chapter and section formatting to add horizontal rule below chapter title and remove excessive spacing
+\titleformat{\chapter}[display]{\normalfont\huge}{\chaptertitlename\ \thechapter}{20pt}{\Huge}[\vspace{20pt}\titlerule]
+\titlespacing*{\chapter}{0pt}{-50pt}{20pt}
+\titleformat{\section}{\normalfont\Large}{\thesection}{1ex}{}
+\titlespacing*{\section}{0pt}{10pt}{10pt}
+\usepackage{tocloft}
+% Add dots to chapters in table of contents
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+% Remove bolding of chapter entries in table of contents
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+
+% New environment to type Gujarati in
+\newenvironment{gujarati}{\begin{otherlanguage}{gujarati}}{\end{otherlanguage}}
+% New command to insert English in the above Gujarati environment
+\newcommand{\english}[1]{\foreignlanguage{english}{#1}}
+
+% Set up title page
+\title{\Huge Recipes}
+\author{Dhairya Patel}
+\date{April 27, 2023 \textendash\ \today}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\maketitle
+
+\frontmatter
+
+% \chapter{Dedication}
+
+% \chapter{Copyright}
+
+% \chapter{Acknowledgements}
+
+\tableofcontents
+
+\mainmatter
+
+\begin{gujarati}
+
+\setlocalecaption{gujarati}{part}{Part}
+\part{ફરસાણ (Salty Savoury Snacks)}
+
+\subfile{individual_recipes/farsan/surti_locho}
+\subfile{individual_recipes/farsan/vati_dalna_khaman}
+
+\setlocalecaption{gujarati}{part}{Part}
+\part{મીઠાઈ (Sweets)}
+
+\subfile{individual_recipes/sweets/nan_khatai}
+
+\setlocalecaption{gujarati}{part}{Part}
+\part{શાક (Shaak)}
+
+\subfile{individual_recipes/shaak/tameta_bataka}
+\subfile{individual_recipes/shaak/ringan_bataka}
+
+\setlocalecaption{gujarati}{part}{Part}
+\part{કઠોળ (Beans)}
+
+\subfile{individual_recipes/beans/chole_chana}
+\subfile{individual_recipes/beans/rajma}
+\subfile{individual_recipes/beans/udad}
+\subfile{individual_recipes/beans/mixed_bean_soup}
+
+\part{પંજાબી (Punjabi)}
+
+\subfile{individual_recipes/punjabi/paneer}
+\subfile{individual_recipes/punjabi/aloo_paratha}
+
+\part{South Indian}
+
+\subfile{individual_recipes/south_indian/idli_idada_uttappa_batter}
+
+\part{Other}
+
+\subfile{individual_recipes/other/banana_loaf_bread}
+
+\end{gujarati}
+
+\end{document}
